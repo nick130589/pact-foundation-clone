@@ -1,0 +1,25 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "@pact-foundation/pact": "10.4.0",
+    "@pact-foundation/pact-node": "^10.17.6",
+    "axios": "1.2.1",
+    "body-parser": "^1.20.1",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "get-port": "5.1.1",
+    "mocha": "^10.2.0",
+    "superagent": "^8.0.6"
+  },
+  "scripts": {
+    "intro": "npm run test:consumer && npm run pact:show",
+    "preintro": "npm install",
+    "test:consumer": "node runConsumerTest.js",
+    "test:provider": "node runProviderTest.js",
+    "pact:publish": "./publish.sh",
+    "pact:show": "cat pacts/GettingStartedOrderWeb-GettingStartedOrderApi.json | jq .",
+    "all": "npm run intro && npm run pact:publish && npm run test:provider"
+  }
+}
